@@ -51,5 +51,33 @@
     </p>
 </div>
 
+<script type="module">
+
+    import {fizzBuzz} from './fizzbuzz.js'
+
+function regnUtFB(evt) {
+// For å forhindre at nettleseren sender skjemaet:
+evt.preventDefault()
+
+// Vi bruker querySelector for å finne elementene vi trenger:
+// "#fakultet input" betyr "input-felt i elementet med id 'fakultet'
+// "#fakultet .resultat" betyr "element med class 'resultat' i
+//    elementet som har id 'fakultet'
+const input = document.querySelector('#fizzBuzz input')
+const output = document.querySelector('#fizzBuzz .resultat')
+
+// parseInt konverterer en streng til et heltall
+const tall = parseInt(input.value)
+
+output.textContent = fizzBuzz(tall)
+}
+
+// Vi legger til en "event listener" som kjører regnUt-funksjonen når
+// vi trykker på en knapp (button) i elementet med id 'fakultet'
+document.querySelector('#fizzBuzz button')
+    .addEventListener('click', e => regnUtFB(e))
+</script>
+
+
     </body>
 </html>
